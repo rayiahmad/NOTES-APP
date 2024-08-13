@@ -1,15 +1,20 @@
-import dynamic from "next/dynamic";
 import { getCatatanById } from "./action";
-
-const Detail = dynamic(() => import("@/app/(main)/[id]/components/detail"));
+import Detail from "./components/detail";
 
 const Detailpage = async ({ params }: { params: { id: string } }) => {
   try {
     const data = await getCatatanById(params.id);
-    if (data) { 
+
+    if (data) {
+      // Convert the Date to a string
+      const formattedData = {
+        ...data,
+        createAt: data.createAt.toISOString(), // Converts Date to ISO string
+      };
+
       return (
         <main className="w-full flex justify-center bg-gray-50 px-5">
-          <Detail data={data} />
+          <Detail data={formattedData} />
         </main>
       );
     } else {

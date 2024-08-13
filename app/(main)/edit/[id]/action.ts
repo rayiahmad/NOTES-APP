@@ -15,3 +15,14 @@ export async function updateCatatan(id: string, title: string, body: string) {
     throw new Error("Terjadi Kesalahan Pada Server");
   }
 }
+
+export async function fetchCatatanById(id: string) {
+  try {
+    const catatan = await prisma.catatan.findUnique({
+      where: { id },
+    });
+    return catatan;
+  } catch (error) {
+    throw new Error("Terjadi Kesalahan Saat Mengambil Data Catatan");
+  }
+}
