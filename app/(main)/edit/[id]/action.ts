@@ -26,3 +26,4 @@ export async function fetchCatatanById(id: string) {
     throw new Error("Terjadi Kesalahan Saat Mengambil Data Catatan");
   }
 }
+

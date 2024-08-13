@@ -3,7 +3,7 @@
 import { useFormik } from "formik";
 import { string, object } from "yup";
 import { useState } from "react";
-import { createCatatan } from "../tambah/action"; // Adjust the import path according to your project structure
+import { createCatatan } from "../tambah/action";
 import { Button } from "@chakra-ui/react";
 
 export interface FormValue {
